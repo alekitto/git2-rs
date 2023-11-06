@@ -15,6 +15,9 @@ pub struct Oid {
     raw: raw::git_oid,
 }
 
+unsafe impl Send for Oid {}
+unsafe impl Sync for Oid {}
+
 impl Oid {
     /// Parse a hex-formatted object id into an Oid structure.
     ///

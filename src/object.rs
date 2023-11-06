@@ -14,6 +14,9 @@ pub struct Object<'repo> {
     _marker: marker::PhantomData<&'repo Repository>,
 }
 
+unsafe impl<'repo> Send for Object<'repo> {}
+unsafe impl<'repo> Sync for Object<'repo> {}
+
 impl<'repo> Object<'repo> {
     /// Get the id (SHA1) of a repository object
     pub fn id(&self) -> Oid {

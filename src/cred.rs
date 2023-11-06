@@ -14,6 +14,8 @@ pub struct Cred {
     raw: *mut raw::git_cred,
 }
 
+unsafe impl Send for Cred {}
+
 /// Management of the gitcredentials(7) interface.
 pub struct CredentialHelper {
     /// A public field representing the currently discovered username from
